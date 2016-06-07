@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div.panel.panel-primary
+    div.panel-heading
+      h1.panel-title= username
+    div.panel-body
+      div.media
+        div.media-left
+          img(class="media-object img-rounded", alt="avatar", style="width: 150px;", src="#{avatar}")
+        div.media-body
+          h3.media-heading= title
+          p #{username} has been starred #{popularity} times
+          p #{username} is most app in the following languages:
+          ul.list-group
+            -each language in languages
+              li.list-group-item #{language.language} - #{language.score} repos
+          p These are some of #{username}'s Repositories:
+          dl.dl-horizontal
+            -each repo in importantRepo
+              dt 
+                a(href=repo.html_url) #{repo.name}
+              dd <span class="glyphicon glyphicon-star"></span> #{repo.stargazers_count} :  #{repo.description}
+    div.panel-footer
+      a(href="/") Go Back

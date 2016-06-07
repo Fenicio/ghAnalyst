@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  div.panel.panel-primary
+    div.panel-heading
+      h1.panel-title= title
+    div.panel-body
+      form(action="/user", method="POST")
+        div.container
+          p.control-label Please input a Github username and click in Analyze.
+          div.row
+            div.col-sm-6
+              input(type="text", class="form-control", id="user_input", name="user", placeholder="Username")
+            div.col-sm-6
+              input(type="submit", class="btn btn-primary btn-block", id="submit_button", value="Analyze")
+          br
+          p.control-label Maybe check some popular users:
+            div.row
+              div.col-sm-3.col-xs-6
+                a(href="user/fat") @fat
+              div.col-sm-3.col-xs-6
+                a(href="user/tj") @tj
+              div.col-sm-3.col-xs-6
+                a(href="user/mdo") @mdo
+              div.col-sm-3.col-xs-6
+                a(href="user/coding-horror") @coding-horror
